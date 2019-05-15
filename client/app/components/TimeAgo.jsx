@@ -7,6 +7,11 @@ import { Moment } from '@/components/proptypes';
 import { clientConfig } from '@/services/auth';
 import useForceUpdate from '@/lib/hooks/useForceUpdate';
 
+import 'moment/locale/zh-cn';
+
+// 强制设置 moment 以中文显示
+moment.locale('zh-cn');
+
 function toMoment(value) {
   value = !isNil(value) ? moment(value) : null;
   return value && value.isValid() ? value : null;

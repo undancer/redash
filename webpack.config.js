@@ -52,7 +52,8 @@ const config = {
     // Enforce angular to use jQuery instead of jqLite
     new webpack.ProvidePlugin({ "window.jQuery": "jquery" }),
     // bundle only default `moment` locale (`en`)
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+    // 打包时包含中文包
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn|zh-hk|en/),
     new HtmlWebpackPlugin({
       template: "./client/app/index.html",
       filename: "index.html",
