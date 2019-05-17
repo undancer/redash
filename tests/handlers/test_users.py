@@ -26,7 +26,7 @@ class TestUserListResourcePost(BaseTestCase):
         rv = self.make_request('post', '/api/users', data=test_user, user=admin)
         self.assertEqual(rv.status_code, 400)
 
-        test_user['email'] = 'arik@qq.com'
+        test_user['email'] = 'arik@e-mail.com'
         rv = self.make_request('post', '/api/users', data=test_user, user=admin)
         self.assertEqual(rv.status_code, 400)
 
@@ -270,7 +270,7 @@ class TestUserResourcePost(BaseTestCase):
         rv = self.make_request('post', '/api/users/{}'.format(self.factory.user.id), data=test_user, user=admin)
         self.assertEqual(rv.status_code, 400)
 
-        test_user['email'] = 'arik@qq.com'
+        test_user['email'] = 'arik@e-mail.com'
         rv = self.make_request('post', '/api/users', data=test_user, user=admin)
         self.assertEqual(rv.status_code, 400)
 
