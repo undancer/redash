@@ -18,6 +18,7 @@ import vsRepeat from 'angular-vs-repeat';
 import 'brace';
 import 'angular-ui-ace';
 import 'angular-resizable';
+import 'angular-translate';
 import { each, isFunction, extend } from 'lodash';
 
 import '@/lib/sortable';
@@ -54,6 +55,7 @@ const requirements = [
   'angularResizable',
   vsRepeat,
   'ui.sortable',
+  'pascalprecht.translate',
 ];
 
 const ngModule = angular.module('app', requirements);
