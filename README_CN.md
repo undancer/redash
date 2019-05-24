@@ -12,4 +12,4 @@
   - 编译```bash pybabel compile -d .```
   - 每次更新待翻译的内容```bash pybabel update -i messages.pot -d .```
 - [ ] I React intl, 前端 React 部分的国际化
-- [ ] I Angular, [参考此处](https://angular.io/guide/i18n)
+- [ ] I Angular, ~~https://angular.io/guide/i18n~~ 需[参考此处](https://angular-translate.github.io/)
