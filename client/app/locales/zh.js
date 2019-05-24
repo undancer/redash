@@ -16,6 +16,8 @@ const messages = {
   'System Status': '系统状态',
   'Log out': '登出',
   'Search queries...': '搜索查询...',
+  Password: '密码',
+  Regenerate: '重新产生',
   dev_by: 'undancer',
 };
 
