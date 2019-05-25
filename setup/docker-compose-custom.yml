@@ -43,6 +43,12 @@ services:
     volumes:
       - /opt/redash/postgres-data:/var/lib/postgresql/data
     restart: always
+  pgadmin:
+    image: dpage/pgadmin4
+    env_file: /opt/redash/env
+    ports:
+      - "12380:80"
+    restart: always
   nginx:
     image: redash/nginx:latest
     ports:
