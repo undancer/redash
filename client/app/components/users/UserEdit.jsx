@@ -9,7 +9,7 @@ import { User } from '@/services/user';
 import { Group } from '@/services/group';
 import { currentUser } from '@/services/auth';
 import { absoluteUrl } from '@/services/utils';
-import {FormattedMessage, injectIntl} from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import { UserProfile } from '../proptypes';
 import DynamicForm from '../dynamic-form/DynamicForm';
 import ChangePasswordDialog from './ChangePasswordDialog';
