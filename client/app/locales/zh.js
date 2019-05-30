@@ -23,7 +23,7 @@ const messages = {
   'Saving Failed': '',
   Retry: '',
   Saved: '',
-  Publish: '',
+  Publish: '发布',
   Refresh: '刷新',
   'Split button!': '',
   'Stop auto refresh': '停止自动刷新',
@@ -35,6 +35,33 @@ const messages = {
   'Widgets are individual query visualizations or text boxes you can place on your dashboard in various arrangements.': '',
   'Add Textbox': '',
   'Add Widget': '',
+
+  'Edit Source': '编辑数据源',
+  'Show Data Only': '只显示数据',
+  Fork: '_Fork_',
+
+  'Show API Key': '显示 API Key',
+
+  created: '创建于',
+  updated: '更新于',
+  Updated: '已更新',
+
+  'Refresh Schedule': '周期性刷新',
+  'Refresh schedule:': '周期性刷新：',
+
+  'Loading results&hellip;': '正在加载结果集&hellip;',
+  'Query in queue&hellip;': '查询任务正在队列中&hellip;',
+  'Error running query:': '执行查询遇到错误：',
+  'Log Information:': '日志信息：',
+  'New Visualization': '新建可视化',
+  'Running&hellip;': '执行中&hellip;',
+  runtime: '运行时',
+  'Data Scanned': '数据扫描完成',
+  'Refresh Dataset': '刷新数据集',
+
+  Cancel: '取消',
+
+
   dev_by: 'undancer',
 };
 
