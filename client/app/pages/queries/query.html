@@ -111,7 +111,7 @@
               <strong class="meta__name" ng-class="{'text-muted': query.user.is_disabled}">{{query.user.name}}</strong>
             </td>
             <td class="text-right">
-              created
+              {{ 'created' | translate }}
               <strong>
                 <rd-time-ago value="query.created_at"></rd-time-ago>
               </strong>
