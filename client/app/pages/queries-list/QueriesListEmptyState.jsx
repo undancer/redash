@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { BigMessage } from '@/components/BigMessage';
 import { NoTaggedObjectsFound } from '@/components/NoTaggedObjectsFound';
 import { EmptyState } from '@/components/empty-state/EmptyState';
+import { getMessage as _ } from '@/lib/locales';
 
 export default function QueriesListEmptyState({ page, searchTerm, selectedTags }) {
   if (searchTerm !== '') {
     return (
-      <BigMessage message="Sorry, we couldn't find anything." icon="fa-search" />
+      <BigMessage message={_('Sorry, we couldn\'t find anything.')} icon="fa-search" />
     );
   }
   if (selectedTags.length > 0) {
