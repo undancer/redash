@@ -24,6 +24,8 @@ import QueriesListEmptyState from './QueriesListEmptyState';
 
 import './queries-list.css';
 
+import { getMessage as _ } from '@/lib/locales';
+
 class QueriesList extends React.Component {
   static propTypes = {
     controller: ControllerType.isRequired,
@@ -33,24 +35,24 @@ class QueriesList extends React.Component {
     {
       key: 'all',
       href: 'queries',
-      title: 'All Queries',
+      title: _('All Queries'),
     },
     {
       key: 'favorites',
       href: 'queries/favorites',
-      title: 'Favorites',
+      title: _('Favorites'),
       icon: () => <Sidebar.MenuIcon icon="fa fa-star" />,
     },
     {
       key: 'archive',
       href: 'queries/archive',
-      title: 'Archived',
+      title: _('Archived'),
       icon: () => <Sidebar.MenuIcon icon="fa fa-archive" />,
     },
     {
       key: 'my',
       href: 'queries/my',
-      title: 'My Queries',
+      title: _('My Queries'),
       icon: () => <Sidebar.ProfileImage user={currentUser} />,
       isAvailable: () => currentUser.hasPermission('create_query'),
     },
@@ -69,17 +71,17 @@ class QueriesList extends React.Component {
         />
       </React.Fragment>
     ), {
-      title: 'Name',
+      title: _('Name'),
       field: 'name',
       width: null,
     }),
     Columns.avatar({ field: 'user', className: 'p-l-0 p-r-0' }, name => `Created by ${name}`),
-    Columns.dateTime.sortable({ title: 'Created At', field: 'created_at' }),
-    Columns.duration.sortable({ title: 'Runtime', field: 'runtime' }),
-    Columns.dateTime.sortable({ title: 'Last Executed At', field: 'retrieved_at', orderByField: 'executed_at' }),
+    Columns.dateTime.sortable({ title: _('Created At'), field: 'created_at' }),
+    Columns.duration.sortable({ title: _('Runtime'), field: 'runtime' }),
+    Columns.dateTime.sortable({ title: _('Last Executed At'), field: 'retrieved_at', orderByField: 'executed_at' }),
     Columns.custom.sortable(
       (text, item) => <SchedulePhrase schedule={item.schedule} isNew={item.isNew()} />,
-      { title: 'Update Schedule', field: 'schedule' },
+      { title: _('Update Schedule'), field: 'schedule' },
     ),
   ];
 
@@ -91,7 +93,7 @@ class QueriesList extends React.Component {
         <Layout className="m-l-15 m-r-15">
           <Layout.Sidebar className="m-b-0">
             <Sidebar.SearchInput
-              placeholder="Search Queries..."
+              placeholder={_('Search Queries...')}
               value={controller.searchTerm}
               onChange={controller.updateSearch}
             />
@@ -163,22 +165,22 @@ export default function init(ngModule) {
   return routesToAngularRoutes([
     {
       path: '/queries',
-      title: 'Queries',
+      title: _('Queries'),
       key: 'all',
     },
     {
       path: '/queries/favorites',
-      title: 'Favorite Queries',
+      title: _('Favorite Queries'),
       key: 'favorites',
     },
     {
       path: '/queries/archive',
-      title: 'Archived Queries',
+      title: _('Archived Queries'),
       key: 'archive',
     },
     {
       path: '/queries/my',
-      title: 'My Queries',
+      title: _('My Queries'),
       key: 'my',
     },
   ], {

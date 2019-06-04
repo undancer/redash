@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { BigMessage } from '@/components/BigMessage';
 import { NoTaggedObjectsFound } from '@/components/NoTaggedObjectsFound';
 import { EmptyState } from '@/components/empty-state/EmptyState';
+import { getMessage as _ } from '@/lib/locales';
 
 export default function DashboardListEmptyState({ page, searchTerm, selectedTags }) {
   if (searchTerm !== '') {
     return (
-      <BigMessage message="Sorry, we couldn't find anything." icon="fa-search" />
+      <BigMessage message={_('Sorry, we couldn\'t find anything.')} icon="fa-search" />
     );
   }
   if (selectedTags.length > 0) {
@@ -17,7 +18,7 @@ export default function DashboardListEmptyState({ page, searchTerm, selectedTags
   }
   switch (page) {
     case 'favorites': return (
-      <BigMessage message="Mark dashboards as Favorite to list them here." icon="fa-star" />
+      <BigMessage message={_('Mark dashboards as Favorite to list them here.')} icon="fa-star" />
     );
     default: return (
       <EmptyState

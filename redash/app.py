@@ -20,7 +20,7 @@ class Redash(Flask):
 
 
 def create_app():
-    from . import authentication, extensions, handlers, limiter, mail, migrate, security
+    from . import authentication, extensions, handlers, limiter, mail, migrate, security, locales
     from .destinations import import_destinations
     from .handlers import chrome_logger
     from .handlers.webpack import configure_webpack
@@ -40,6 +40,7 @@ def create_app():
     import_query_runners(settings.QUERY_RUNNERS)
     import_destinations(settings.DESTINATIONS)
 
+    locales.init_app(app)
     security.init_app(app)
     request_metrics.init_app(app)
     db.init_app(app)
