@@ -7,6 +7,7 @@ import Icon from 'antd/lib/icon';
 import { react2angular } from 'react2angular';
 
 import QueryResultsLink from './QueryResultsLink';
+import { getMessage as _ } from '@/lib/locales';
 
 
 export function QueryControlDropdown(props) {
@@ -15,14 +16,14 @@ export function QueryControlDropdown(props) {
       {!props.query.isNew() && (!props.query.is_draft || !props.query.is_archived) && (
         <Menu.Item>
           <a target="_self" onClick={() => props.openAddToDashboardForm(props.selectedTab)}>
-            <Icon type="plus-circle" theme="filled" /> Add to Dashboard
+            <Icon type="plus-circle" theme="filled" /> {_('Add to Dashboard')}
           </a>
         </Menu.Item>
       )}
       {!props.query.isNew() && (
         <Menu.Item>
           <a onClick={() => props.showEmbedDialog(props.query, props.selectedTab)} data-test="ShowEmbedDialogButton">
-            <Icon type="share-alt" /> Embed Elsewhere
+            <Icon type="share-alt" /> {_('Embed Elsewhere')}
           </a>
         </Menu.Item>
       )}
@@ -34,7 +35,7 @@ export function QueryControlDropdown(props) {
           embed={props.embed}
           apiKey={props.apiKey}
         >
-          <Icon type="file" /> Download as CSV File
+          <Icon type="file" /> {_('Download as CSV File')}
         </QueryResultsLink>
       </Menu.Item>
       <Menu.Item>
@@ -46,7 +47,7 @@ export function QueryControlDropdown(props) {
           embed={props.embed}
           apiKey={props.apiKey}
         >
-          <Icon type="file-excel" /> Download as Excel File
+          <Icon type="file-excel" /> {_('Download as Excel File')}
         </QueryResultsLink>
       </Menu.Item>
     </Menu>

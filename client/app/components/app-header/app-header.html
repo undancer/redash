@@ -25,7 +25,7 @@
           ng-show="$ctrl.showDashboardsMenu"
           uib-dropdown
         >
-          <a class="btn" href="dashboards">Dashboards</a>
+          <a class="btn" href="dashboards">{{ 'Dashboards' | translate }}</a>
           <a type="button" class="btn hidden-xs" uib-dropdown-toggle>
             <span class="caret caret--nav"></span>
           </a>
@@ -52,7 +52,7 @@
           ng-show="$ctrl.showQueriesMenu"
           uib-dropdown
         >
-          <a class="btn" href="queries">Queries</a>
+          <a class="btn" href="queries">{{ 'Queries' | translate }}</a>
           <a type="button" class="btn hidden-xs" uib-dropdown-toggle>
             <span class="caret caret--nav"></span>
           </a>
@@ -75,7 +75,7 @@
           </ul>
         </li>
         <li ng-if="$ctrl.showAlertsLink">
-          <a href="alerts">Alerts</a>
+          <a href="alerts">{{ 'Alerts' | translate }}</a>
         </li>
       </ul>
 
@@ -93,7 +93,7 @@
           uib-dropdown-toggle
           ng-disabled="disabled"
         >
-          Create <span class="caret caret--nav"></span>
+          {{ 'Create' | translate }} <span class="caret caret--nav"></span>
         </button>
         <ul
           class="dropdown-menu"
@@ -102,29 +102,23 @@
           aria-labelledby="create-button"
         >
           <li role="menuitem" ng-show="$ctrl.showNewQueryMenu">
-            <a href="queries/new">Query</a>
+            <a href="queries/new">{{ 'Query' | translate }}</a>
           </li>
           <li role="menuitem">
             <a
               ng-show="$ctrl.currentUser.hasPermission('create_dashboard')"
               ng-click="$ctrl.newDashboard()"
-              >Dashboard</a
+              >{{ 'Dashboard' | translate }}</a
             >
           </li>
-          <li role="menuitem"><a href="alerts/new">Alert</a></li>
+          <li role="menuitem"><a href="alerts/new">{{ 'Alert' | translate }}</a></li>
         </ul>
       </div>
 
       <!-- Profile -->
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <help-trigger
-            type="'HOME'"
-            class-name="'navbar-link-ANGULAR_REMOVE_ME'"
-          ></help-trigger>
-        </li>
         <li ng-show="$ctrl.currentUser.isAdmin">
-          <a href="data_sources" title="Settings"
+          <a href="data_sources" title="{{ 'Settings' | translate }}"
             ><i class="fa fa-sliders" aria-hidden="true"></i
           ></a>
         </li>
@@ -150,7 +144,7 @@
           ></a>
           <ul class="dropdown-menu dropdown-menu--profile">
             <li>
-              <a ng-href="users/me">Edit Profile</a>
+              <a ng-href="users/me">{{ 'Edit Profile' | translate }}</a>
             </li>
             <li
               class="divider"
@@ -158,19 +152,19 @@
             ></li>
 
             <li ng-show="$ctrl.currentUser.isAdmin">
-              <a href="data_sources" title="Data Sources">Data Sources</a>
+              <a href="data_sources" title="Data Sources">{{ 'Data Sources' | translate }}</a>
             </li>
             <li ng-show="$ctrl.showSettingsMenu">
-              <a href="groups" title="Settings">Groups</a>
+              <a href="groups" title="Settings">{{ 'Groups' | translate }}</a>
             </li>
             <li ng-show="$ctrl.showSettingsMenu">
-              <a href="users" title="Settings">Users</a>
+              <a href="users" title="Settings">{{ 'Users' | translate }}</a>
             </li>
             <li>
-              <a ng-href="query_snippets">Query Snippets</a>
+              <a ng-href="query_snippets">{{ 'Query Snippets' | translate }}</a>
             </li>
             <li ng-show="$ctrl.showSettingsMenu">
-              <a href="destinations" title="Settings">Alert Destinations</a>
+              <a href="destinations" title="Settings">{{ 'Alert Destinations' | translate }}</a>
             </li>
 
             <li
@@ -179,13 +173,13 @@
             ></li>
 
             <li ng-if="$ctrl.currentUser.hasPermission('super_admin')">
-              <a href="admin/status">System Status</a>
+              <a href="admin/status">{{ 'System Status' | translate }}</a>
             </li>
 
             <li class="divider"></li>
 
             <li>
-              <a ng-click="$ctrl.logout()">Log out</a>
+              <a ng-click="$ctrl.logout()">{{ 'Log out' | translate }}</a>
             </li>
 
             <li class="divider"></li>
@@ -218,7 +212,7 @@
             type="text"
             ng-model="$ctrl.searchTerm"
             class="form-control navbar__search__input"
-            placeholder="Search queries..."
+            placeholder="{{ 'Search queries...' | translate }}"
             data-test="AppHeaderSearch"
           />
           <span class="input-group-btn">

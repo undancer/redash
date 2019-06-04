@@ -1,6 +1,6 @@
 {% extends "layouts/signed_out.html" %}
 
-{% block title %}Login to Redash{% endblock %}
+{% block title %}{{ _("Login to Redash") }}{% endblock %}
 
 {% block content %}
 <div class="fixed-width-page">
@@ -44,15 +44,15 @@
         <input type="text" class="form-control" id="inputEmail" name="email" value="{{email}}" data-test="Email">
       </div>
       <div class="form-group">
-        <label for="inputPassword">Password</label>
+        <label for="inputPassword">{{ _("Password") }}</label>
         <input type="password" class="form-control" id="inputPassword" name="password" data-test="Password">
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block m-t-25">Log In</button>
+      <button type="submit" class="btn btn-primary btn-block m-t-25">{{ _("Log In") }}</button>
     </form>
     {% if not hide_forgot_password %}
       <div class="m-t-25">
-        <a href="{{ url_for("redash.forgot_password", org_slug=org_slug) }}">I forgot my password</a>
+        <a href="{{ url_for("redash.forgot_password", org_slug=org_slug) }}">{{ _("I forgot my password") }}</a>
       </div>
     {% endif %}
     {% endif %}

@@ -13,6 +13,13 @@ import { $route } from '@/services/ng';
 import { currentUser } from '@/services/auth';
 import PromiseRejectionError from '@/lib/promise-rejection-error';
 import './settings.less';
+import { IntlProvider, addLocaleData } from 'react-intl';
+import en from 'react-intl/locale-data/en';
+import zh from 'react-intl/locale-data/zh';
+import messages from '@/locales/zh';
+
+
+addLocaleData([...en, ...zh]);
 
 class UserProfile extends React.Component {
   static propTypes = {
@@ -46,12 +53,14 @@ class UserProfile extends React.Component {
     const canEdit = user && (currentUser.isAdmin || currentUser.id === user.id);
     const UserComponent = canEdit ? UserEdit : UserShow;
     return (
-      <React.Fragment>
-        <EmailSettingsWarning featureName="invite emails" />
-        <div className="row">
-          {user ? <UserComponent user={user} /> : <LoadingState className="" />}
-        </div>
-      </React.Fragment>
+      <IntlProvider locale="zh" messages={messages}>
+        <React.Fragment>
+          <EmailSettingsWarning featureName="invite emails" />
+          <div className="row">
+            {user ? <UserComponent user={user} /> : <LoadingState className="" />}
+          </div>
+        </React.Fragment>
+      </IntlProvider>
     );
   }
 }
