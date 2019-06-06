@@ -1,5 +1,6 @@
 import template from './home.html';
 import notification from '@/services/notification';
+import { getMessage as _ } from '@/lib/locales';
 
 function HomeCtrl(Events, Dashboard, Query, $http, messages) {
   Events.record('view', 'page', 'personal_homepage');
@@ -34,7 +35,7 @@ export default function init(ngModule) {
   return {
     '/': {
       template: '<home-page></home-page>',
-      title: 'Redash',
+      title: _('Redash'),
     },
   };
 }

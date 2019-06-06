@@ -1,4 +1,5 @@
 const messages = {
+  Redash: '系统',
   Dashboards: '面板',
   Queries: '分析',
   Alerts: '预警',
@@ -100,6 +101,17 @@ const messages = {
   'Remove From Dashboard': 'Remove From Dashboard',
   'View Query': 'View Query',
   'Edit Parameters': 'Edit Parameters',
+
+  'Favorite Dashboards will appear here': 'Favorite Dashboards will appear here',
+  'Favorite Queries will appear here': 'Favorite Queries will appear here',
+
+  Width: 'Width',
+  Height: 'Height',
+  Close: 'Close',
+  'Public URL': 'Public URL',
+  'IFrame Embed': 'IFrame Embed',
+  'Image Embed': 'Image Embed',
+  'Currently it is not possible to embed queries that contain text parameters.': 'Currently it is not possible to embed queries that contain text parameters.',
 
 
   dev_by: 'undancer',

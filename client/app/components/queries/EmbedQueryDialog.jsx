@@ -10,6 +10,7 @@ import { wrap as wrapDialog, DialogPropType } from '@/components/DialogWrapper';
 import { clientConfig } from '@/services/auth';
 import CodeBlock from '@/components/CodeBlock';
 import './EmbedQueryDialog.less';
+import { getMessage as _ } from '@/lib/locales';
 
 class EmbedQueryDialog extends React.Component {
   static propTypes = {
@@ -43,18 +44,18 @@ class EmbedQueryDialog extends React.Component {
       <Modal
         {...dialog.props}
         className="embed-query-dialog"
-        title="Embed Query"
-        footer={(<Button onClick={dialog.dismiss}>Close</Button>)}
+        title={_('Embed Query')}
+        footer={(<Button onClick={dialog.dismiss}>{_('Close')}</Button>)}
       >
         {query.is_safe ? (
           <React.Fragment>
-            <h5 className="m-t-0">Public URL</h5>
+            <h5 className="m-t-0">{_('Public URL')}</h5>
             <div className="m-b-30">
               <CodeBlock data-test="EmbedIframe" copyable>
                 {this.embedUrl}
               </CodeBlock>
             </div>
-            <h5 className="m-t-0">IFrame Embed</h5>
+            <h5 className="m-t-0">{_('IFrame Embed')}</h5>
             <div>
               <CodeBlock copyable>
                 {`<iframe src="${this.embedUrl}" width="${iframeWidth}" height="${iframeHeight}"></iframe>`}
@@ -66,7 +67,7 @@ class EmbedQueryDialog extends React.Component {
                     onChange={e => this.setState({ enableChangeIframeSize: e.target.checked })}
                   />
                 </Form.Item>
-                <Form.Item label="Width">
+                <Form.Item label={_('Width')}>
                   <InputNumber
                     className="size-input"
                     value={iframeWidth}
@@ -75,7 +76,7 @@ class EmbedQueryDialog extends React.Component {
                     disabled={!enableChangeIframeSize}
                   />
                 </Form.Item>
-                <Form.Item label="Height">
+                <Form.Item label={_('Height')}>
                   <InputNumber
                     className="size-input"
                     value={iframeHeight}
@@ -88,14 +89,14 @@ class EmbedQueryDialog extends React.Component {
             </div>
             {this.snapshotUrl && (
               <React.Fragment>
-                <h5>Image Embed</h5>
+                <h5>{_('Image Embed')}</h5>
                 <CodeBlock copyable>{this.snapshotUrl}</CodeBlock>
               </React.Fragment>
             )}
           </React.Fragment>
         ) : (
           <Alert
-            message="Currently it is not possible to embed queries that contain text parameters."
+            message={_('Currently it is not possible to embed queries that contain text parameters.')}
             type="error"
             data-test="EmbedErrorAlert"
           />
