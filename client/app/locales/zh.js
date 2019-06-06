@@ -86,6 +86,14 @@ const messages = {
 
   Cancel: '取消',
 
+  'Share Dashboard': 'Share Dashboard',
+  'Allow public access to this dashboard with a secret address.': 'Allow public access to this dashboard with a secret address.',
+  'Allow public access': 'Allow public access',
+  'Secret address': 'Secret address',
+  'Sharing is currently not supported for dashboards containing queries with parameters.': 'Sharing is currently not supported for dashboards containing queries with parameters.',
+  'Failed to turn on sharing for this dashboard': 'Failed to turn on sharing for this dashboard',
+  'Failed to turn off sharing for this dashboard': 'Failed to turn off sharing for this dashboard',
+
 
   dev_by: 'undancer',
 };
