@@ -123,7 +123,7 @@ export class HelpTrigger extends React.Component {
     this.setState({ visible: false });
   };
 
-  render() {
+  renderDefault() {
     const [, tooltip] = TYPES[this.props.type];
     const className = cx('help-trigger', this.props.className);
 
@@ -179,6 +179,10 @@ export class HelpTrigger extends React.Component {
         </Drawer>
       </React.Fragment>
     );
+  }
+
+  render() {
+    return (<div />);
   }
 }
 
