@@ -94,6 +94,13 @@ const messages = {
   'Failed to turn on sharing for this dashboard': 'Failed to turn on sharing for this dashboard',
   'Failed to turn off sharing for this dashboard': 'Failed to turn off sharing for this dashboard',
 
+  'Download Dataset': 'Download Dataset',
+
+  'This widget requires access to a data source you don\'t have access to.': 'This widget requires access to a data source you don\'t have access to.',
+  'Remove From Dashboard': 'Remove From Dashboard',
+  'View Query': 'View Query',
+  'Edit Parameters': 'Edit Parameters',
+
 
   dev_by: 'undancer',
 };
