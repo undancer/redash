@@ -86,13 +86,13 @@ const messages = {
 
   Cancel: '取消',
 
-  'Share Dashboard': 'Share Dashboard',
-  'Allow public access to this dashboard with a secret address.': 'Allow public access to this dashboard with a secret address.',
-  'Allow public access': 'Allow public access',
-  'Secret address': 'Secret address',
-  'Sharing is currently not supported for dashboards containing queries with parameters.': 'Sharing is currently not supported for dashboards containing queries with parameters.',
-  'Failed to turn on sharing for this dashboard': 'Failed to turn on sharing for this dashboard',
-  'Failed to turn off sharing for this dashboard': 'Failed to turn off sharing for this dashboard',
+  'Share Dashboard': '通过微信、QQ等分享当前面板',
+  'Allow public access to this dashboard with a secret address.': '允许任何人通过访问链接地址即可直接查看本面板数据，无需用户密码登录.（注意：每次关闭后重新打开，链接地址会改变，之前的链接地址失效）',
+  'Allow public access': '打开/关闭链接地址：',
+  'Secret address': '点击右侧方块复制链接地址',
+  'Sharing is currently not supported for dashboards containing queries with parameters.': '本面板带有查询参数条件，无法通过链接地址方式分享.',
+  'Failed to turn on sharing for this dashboard': '分享失败',
+  'Failed to turn off sharing for this dashboard': '停止分享失败',
 
 
   dev_by: 'undancer',
