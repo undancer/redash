@@ -85,6 +85,7 @@ const messages = {
   'Download as Excel File': '下载 Excel 文件',
   'Edit Visualization': '编辑可视化',
 
+  Apply: '应用',
   Cancel: '取消',
 
   'Share Dashboard': '通过微信、QQ等分享当前面板',
