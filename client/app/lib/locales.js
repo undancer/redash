@@ -15,7 +15,7 @@ const intlProvider = new IntlProvider({
 const { intl } = intlProvider.getChildContext();
 
 function getMessage(text) {
-  return intl.formatMessage({ id: text });
+  return text !== '' ? intl.formatMessage({ id: text }) : '';
 }
 
 
