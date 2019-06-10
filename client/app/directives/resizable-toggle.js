@@ -75,6 +75,11 @@ function resizableToggle(KeyboardShortcuts) {
         ignoreResizeEvents = false;
       }
 
+      (() => {
+        const animateProp = isFlex ? flexBasis : 'width';
+        $element.css({ [animateProp]: 0 });
+      })();
+
       $element.on('click', '.rg-left, .rg-right', () => {
         if (allowHClick) {
           const minSize = parseFloat($element.css('min-width')) + threshold;
