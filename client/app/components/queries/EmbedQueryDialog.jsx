@@ -28,6 +28,10 @@ class EmbedQueryDialog extends React.Component {
   constructor(props) {
     super(props);
     const { query, visualization } = props;
+
+    const params = query.getParameters().toUrlParams();
+    this._embedUrl = `${clientConfig.basePath}embed/query/${query.id}/visualization/${
+      visualization.id}` + (params !== '' ? ('?' + params) : '');
     this.embedUrl = `${clientConfig.basePath}embed/query/${query.id}/visualization/${
       visualization.id}?api_key=${query.api_key}&${query.getParameters().toUrlParams()}`;
 
@@ -49,6 +53,12 @@ class EmbedQueryDialog extends React.Component {
       >
         {query.is_safe ? (
           <React.Fragment>
+            <h5 className="m-t-0">{_('Public_URL')}</h5>
+            <div className="m-b-30">
+              <CodeBlock data-test="EmbedIframe" copyable>
+                {this._embedUrl}
+              </CodeBlock>
+            </div>
             <h5 className="m-t-0">{_('Public URL')}</h5>
             <div className="m-b-30">
               <CodeBlock data-test="EmbedIframe" copyable>

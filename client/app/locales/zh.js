@@ -109,6 +109,8 @@ const messages = {
   Width: '宽度',
   Height: '高度',
   Close: '关闭',
+  'Embed Query': 'EQ',
+  Public_URL: '自己添加的分享',
   'Public URL': '复制以下链接地址，即可通过微信、QQ分享当前分析（注意，访问这个地址用户无需登录即可查看该分析结果，您无法停用这个分享）',
   'IFrame Embed': '使用以下链接地址可把该分析嵌入到另一个网页的IFrame中',
   'Image Embed': '图片嵌入',
