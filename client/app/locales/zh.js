@@ -39,7 +39,7 @@ const messages = {
 
   'Edit Source': '编辑数据源',
   'Show Data Only': '只显示数据',
-  Fork: '_复制_',
+  Fork: '复制',
 
   'Show API Key': '显示 API Key',
 
