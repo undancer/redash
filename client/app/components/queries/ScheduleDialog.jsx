@@ -238,7 +238,7 @@ class ScheduleDialog extends React.Component {
               <Radio.Group size="medium" defaultValue={this.state.dayOfWeek} onChange={this.setWeekday}>
                 {WEEKDAYS_SHORT.map(day => (
                   <Radio.Button value={day} key={day} className="input">
-                    {day[0]}
+                    {day}
                   </Radio.Button>
                 ))}
               </Radio.Group>
