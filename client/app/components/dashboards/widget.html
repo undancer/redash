@@ -20,7 +20,7 @@
             <li ng-class="{'disabled': $ctrl.widget.getQueryResult().isEmpty()}"><a ng-href="{{$ctrl.widget.getQueryResult().getLink($ctrl.widget.getQuery().id, 'xlsx')}}" download="{{$ctrl.widget.getQueryResult().getName($ctrl.widget.getQuery().name, 'xlsx')}}" target="_self">{{ 'Download as Excel File' | translate }}</a></li>
 
             <li ng-if="$ctrl.canViewQuery || ($ctrl.dashboard.canEdit() && $ctrl.hasParameters())" class="divider"></li>
-            <li ng-if="$ctrl.canViewQuery"><a ng-href="{{$ctrl.widget.getQuery().getUrl(true, $ctrl.widget.visualization.id)}}">{{  'View Query' | translate }}</a></li>
+            <li ng-if="$ctrl.canViewQuery"><a ng-href="{{$ctrl.widget.getQuery().getUrl(false, $ctrl.widget.visualization.id)}}">{{  'View Query' | translate }}</a></li>
             <li ng-if="$ctrl.dashboard.canEdit() && $ctrl.hasParameters()">
               <li ng-if="$ctrl.dashboard.canEdit() && $ctrl.hasParameters()"><a ng-click="$ctrl.editParameterMappings()">{{ 'Edit Parameters' | translate }}</a></li>
             </li>
