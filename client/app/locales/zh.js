@@ -1,5 +1,5 @@
 const messages = {
-  Redash: '系统',
+  Redash: '历源智能分析系统',
   Dashboards: '面板',
   Queries: '分析',
   Alerts: '预警',
@@ -64,7 +64,7 @@ const messages = {
   Favorites: '已收藏的',
   'Favorite Dashboards': '收藏的面板',
   Name: '名称',
-  'Created At': '创建于',
+  'Created At': '创建时间',
   'Mark dashboards as Favorite to list them here.': '点亮面板标题前面的星星可以收藏面板，收藏的面板会列在这里。-----',
   'All Queries': '显示全部分析',
   Archived: '已删除的',
@@ -96,7 +96,7 @@ const messages = {
   'Failed to turn on sharing for this dashboard': '分享失败',
   'Failed to turn off sharing for this dashboard': '停止分享失败',
 
-  'Download Dataset': '下载数据集',
+  'Download Dataset': '下载数据',
 
   'This widget requires access to a data source you don\'t have access to.': '您没有权限访问这个分析组件所对应的数据源',
   'Remove From Dashboard': '从面板上移除',
@@ -109,10 +109,10 @@ const messages = {
   Width: '宽度',
   Height: '高度',
   Close: '关闭',
-  'Embed Query': 'EQ',
-  Public_URL: '自己添加的分享',
-  'Public URL': '复制以下链接地址，即可通过微信、QQ分享当前分析（注意，访问这个地址用户无需登录即可查看该分析结果，您无法停用这个分享）',
-  'IFrame Embed': '使用以下链接地址可把该分析嵌入到另一个网页的IFrame中',
+  'Embed Query': '通过微信、QQ等分享该分析',
+  Public_URL: '复制以下链接地址，对方需要登录系统且有该分析的权限才能查看',
+  'Public URL': '以下链接地址，对方无需登录即可查看该分析，且您无法停用这个分享',
+  'IFrame Embed': '使用以下链接地址，可把该分析嵌入到另一个网页的IFrame中',
   'Image Embed': '图片嵌入',
   'Currently it is not possible to embed queries that contain text parameters.': '本分析带有文本参数，目前还不能分享.',
 

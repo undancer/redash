@@ -27,7 +27,7 @@ export default function QueriesListEmptyState({ page, searchTerm, selectedTags }
       <div className="tiled bg-white p-15">
         <a href="queries/new" className="btn btn-primary btn-sm">Create your first query</a>
         {' '}to populate My Queries list. Need help? Check out our{' '}
-        <a href="https://redash.io/help/user-guide/querying/writing-queries">query writing documentation</a>.
+        <a href="http://help.xinniuren.cn/bigdata/query.html">query writing documentation</a>.
       </div>
     );
     default: return (
@@ -35,7 +35,7 @@ export default function QueriesListEmptyState({ page, searchTerm, selectedTags }
         icon="fa fa-code"
         illustration="query"
         description="Getting the data from your datasources."
-        helpLink="https://help.redash.io/category/21-querying"
+        helpLink="http://help.xinniuren.cn/bigdata/query.html"
       />
     );
   }
