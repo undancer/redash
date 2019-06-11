@@ -1,8 +1,8 @@
 Hi {{ user.name }},
 
-You told us you forgot your password. If you really did, click here to choose a new one:
-
+us you forgot your password. If you really did, click here to choose a new one:
+这是一封密码重置邮件，由于您在线申请进行密码重置，您可点击以下链接输入一个新密码：
 {{ reset_link }}
 
 If you didn't mean to reset your password, then you can just ignore this email; your password will not change.
-
+如果您不需要重置密码，请忽略本邮件即可，您的密码不会被修改。

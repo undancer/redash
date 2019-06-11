@@ -137,7 +137,7 @@ export function EmptyState({
         <p>
           Need more support?{' '}
           <a href={helpLink} target="_blank" rel="noopener noreferrer">
-            See our Help
+            查看帮助 See our Help
             <i className="fa fa-external-link m-l-5" aria-hidden="true" />
           </a>
         </p>
