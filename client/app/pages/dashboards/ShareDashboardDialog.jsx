@@ -11,6 +11,8 @@ import { wrap as wrapDialog, DialogPropType } from '@/components/DialogWrapper';
 import InputWithCopy from '@/components/InputWithCopy';
 import { HelpTrigger } from '@/components/HelpTrigger';
 
+import { getMessage as _ } from '@/lib/locales';
+
 const API_SHARE_URL = 'api/dashboards/{id}/share';
 
 class ShareDashboardDialog extends React.Component {
@@ -41,9 +43,9 @@ class ShareDashboardDialog extends React.Component {
   static get headerContent() {
     return (
       <React.Fragment>
-        Share Dashboard
+        { _('Share Dashboard') }
         <div className="modal-header-desc">
-          Allow public access to this dashboard with a secret address.{' '}
+          { _('Allow public access to this dashboard with a secret address.') }{' '}
           <HelpTrigger type="SHARE_DASHBOARD" />
         </div>
       </React.Fragment>
@@ -61,7 +63,7 @@ class ShareDashboardDialog extends React.Component {
         dashboard.public_url = data.public_url;
       })
       .error(() => {
-        notification.error('Failed to turn on sharing for this dashboard');
+        notification.error(_('Failed to turn on sharing for this dashboard'));
       })
       .finally(() => {
         this.setState({ saving: false });
@@ -79,7 +81,7 @@ class ShareDashboardDialog extends React.Component {
         delete dashboard.public_url;
       })
       .error(() => {
-        notification.error('Failed to turn off sharing for this dashboard');
+        notification.error(_('Failed to turn off sharing for this dashboard'));
       })
       .finally(() => {
         this.setState({ saving: false });
@@ -107,12 +109,12 @@ class ShareDashboardDialog extends React.Component {
           {this.props.hasQueryParams && (
             <Form.Item>
               <Alert
-                message="Sharing is currently not supported for dashboards containing queries with parameters."
+                message={_('Sharing is currently not supported for dashboards containing queries with parameters.')}
                 type="error"
               />
             </Form.Item>
           )}
-          <Form.Item label="Allow public access" {...this.formItemProps}>
+          <Form.Item label={_('Allow public access')} {...this.formItemProps}>
             <Switch
               checked={dashboard.publicAccessEnabled}
               onChange={this.onChange}
@@ -121,7 +123,7 @@ class ShareDashboardDialog extends React.Component {
             />
           </Form.Item>
           {dashboard.public_url && (
-            <Form.Item label="Secret address" {...this.formItemProps}>
+            <Form.Item label={_('Secret address')} {...this.formItemProps}>
               <InputWithCopy value={dashboard.public_url} />
             </Form.Item>
           )}

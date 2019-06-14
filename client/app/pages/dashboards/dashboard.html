@@ -18,49 +18,49 @@
           <div ng-if="$ctrl.layoutEditing" ng-switch="$ctrl.isLayoutDirty">
             <span ng-switch-when="true" ng-switch="$ctrl.saveInProgress || $ctrl.saveDelay">
                 <span ng-switch-when="true">
-                  <span class="save-status" data-saving>Saving</span>
+                  <span class="save-status" data-saving>{{ 'Saving' | translate }}</span>
                   <button class="btn btn-primary btn-sm" ng-disabled="$ctrl.editBtnClickedWhileSaving" ng-click="$ctrl.editBtnClickedWhileSaving = true">
-                    <i class="fa fa-check" ng-class="{'fa-spinner fa-pulse': $ctrl.editBtnClickedWhileSaving}"></i> Done Editing
+                    <i class="fa fa-check" ng-class="{'fa-spinner fa-pulse': $ctrl.editBtnClickedWhileSaving}"></i> {{ 'Done Editing' | translate }}
                   </button>
                 </span>
                 <span ng-switch-default>
-                  <span class="save-status" data-error>Saving Failed</span>
+                  <span class="save-status" data-error>{{ 'Saving Failed' | translate }}</span>
                   <button class="btn btn-primary btn-sm" ng-click="$ctrl.retrySaveDashboardLayout()">
-                    Retry
+                    {{ 'Retry' | translate }}
                   </button>
                 </span>
             </span>
             <span ng-switch-default>
-              <span class="save-status">Saved</span>
+              <span class="save-status">{{ 'Saved' | translate }}</span>
               <button class="btn btn-primary btn-sm"
                 ng-disabled="$ctrl.isGridDisabled"
                 ng-click="$ctrl.editLayout(false)">
-                <i class="fa fa-check"></i> Done Editing
+                <i class="fa fa-check"></i> {{ 'Done Editing' | translate }}
               </button>
             </span>
           </div>
 
           <button type="button" class="btn btn-default btn-sm" ng-click="$ctrl.togglePublished()" tooltip="Publish Dashboard" ng-if="$ctrl.dashboard.is_draft && !$ctrl.layoutEditing">
-            <span class="fa fa-paper-plane"></span> Publish
+            <span class="fa fa-paper-plane"></span> {{ 'Publish' | translate }}
           </button>
 
           <div class="btn-group" uib-dropdown ng-if="!$ctrl.layoutEditing">
             <button id="split-button" type="button"
                     ng-class="{'btn-default btn-sm': $ctrl.refreshRate === null,'btn-primary btn-sm':$ctrl.refreshRate !== null}"
                     class="btn btn-sm" ng-click="$ctrl.refreshDashboard()">
-              <i class="zmdi zmdi-refresh"></i> {{$ctrl.refreshRate === null ? 'Refresh' : $ctrl.refreshRate.name}}
+              <i class="zmdi zmdi-refresh"></i> {{ ($ctrl.refreshRate === null ? 'Refresh' : $ctrl.refreshRate.name) | translate }}
             </button>
             <button type="button" class="btn hidden-xs" uib-dropdown-toggle
                     ng-class="{'btn-default btn-sm': $ctrl.refreshRate === null,'btn-primary btn-sm':$ctrl.refreshRate !== null}">
               <span class="caret"></span>
-              <span class="sr-only">Split button!</span>
+              <span class="sr-only">{{ 'Split button!' | translate }}</span>
             </button>
             <ul class="dropdown-menu pull-right" ng-model="$ctrl.refreshRate" uib-dropdown-menu role="menu" aria-labelledby="split-button">
               <li role="menuitem" ng-repeat="refreshRate in $ctrl.refreshRates" ng-class="{disabled: !refreshRate.enabled}">
                 <a href="javascript:void(0)" ng-click="$ctrl.setRefreshRate(refreshRate)">{{refreshRate.name}}</a>
               </li>
               <li role="menuitem" ng-if="$ctrl.refreshRate !== null">
-                <a href="#" ng-click="$ctrl.setRefreshRate(null)">Stop auto refresh</a>
+                <a href="#" ng-click="$ctrl.setRefreshRate(null)">{{ 'Stop auto refresh' | translate }}</a>
               </li>
             </ul>
           </div>
@@ -77,10 +77,10 @@
           <span class="zmdi zmdi-more"></span>
         </button>
         <ul class="dropdown-menu pull-right" uib-dropdown-menu>
-          <li ng-if="!$ctrl.dashboard.is_archived" ng-class="{hidden: $ctrl.isGridDisabled}"><a ng-click="$ctrl.editLayout(true)">Edit</a></li>
-          <li ng-if="$ctrl.showPermissionsControl"><a ng-click="$ctrl.showManagePermissionsModal()">Manage Permissions</a></li>
-          <li ng-if="!$ctrl.dashboard.is_draft"><a ng-click="$ctrl.togglePublished()">Unpublish</a></li>
-          <li ng-if="!$ctrl.dashboard.is_archived"><a ng-click="$ctrl.archiveDashboard()">Archive</a></li>
+          <li ng-if="!$ctrl.dashboard.is_archived" ng-class="{hidden: $ctrl.isGridDisabled}"><a ng-click="$ctrl.editLayout(true)">{{ 'Edit' | translate }}</a></li>
+          <li ng-if="$ctrl.showPermissionsControl"><a ng-click="$ctrl.showManagePermissionsModal()">{{ 'Manage Permissions' | translate }}</a></li>
+          <li ng-if="!$ctrl.dashboard.is_draft"><a ng-click="$ctrl.togglePublished()">{{ 'Unpublish' | translate }}</a></li>
+          <li ng-if="!$ctrl.dashboard.is_archived"><a ng-click="$ctrl.archiveDashboard()">{{ 'Archive' | translate }}</a></li>
         </ul>
       </div>
     </div>
@@ -89,7 +89,7 @@
   <div class="m-b-10 p-15 bg-white tiled" ng-if="$ctrl.layoutEditing">
     <label>
         <input name="input" type="checkbox" ng-model="$ctrl.dashboard.dashboard_filters_enabled" ng-change="$ctrl.updateDashboardFiltersState()">
-        Use Dashboard Level Filters
+        {{ 'Use Dashboard Level Filters' | translate }}
     </label>
   </div>
 
@@ -117,11 +117,11 @@
   <div class="add-widget-container" ng-if="$ctrl.layoutEditing">
     <h2>
       <i class="zmdi zmdi-widgets"></i>
-      <span class="hidden-xs hidden-sm">Widgets are individual query visualizations or text boxes you can place on your dashboard in various arrangements.</span>
+      <span class="hidden-xs hidden-sm">{{ 'Widgets are individual query visualizations or text boxes you can place on your dashboard in various arrangements.' | translate }}</span>
     </h2>
     <div>
-      <a class="btn btn-default" ng-click="$ctrl.showAddTextboxDialog()">Add Textbox</a>
-      <a class="btn btn-primary m-l-10" ng-click="$ctrl.showAddWidgetDialog()">Add Widget</a>
+      <a class="btn btn-default" ng-click="$ctrl.showAddTextboxDialog()">{{ 'Add Textbox' | translate }}</a>
+      <a class="btn btn-primary m-l-10" ng-click="$ctrl.showAddWidgetDialog()">{{ 'Add Widget' | translate }}</a>
     </div>
   </div>
 </div>

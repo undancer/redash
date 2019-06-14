@@ -144,7 +144,7 @@ export class HelpTrigger extends React.Component {
     this.setState({ visible: false, currentUrl: null });
   };
 
-  render() {
+  renderDefault() {
     const [, tooltip] = TYPES[this.props.type];
     const className = cx('help-trigger', this.props.className);
     const url = this.state.currentUrl;
@@ -218,6 +218,10 @@ export class HelpTrigger extends React.Component {
         </Drawer>
       </React.Fragment>
     );
+  }
+
+  render() {
+    return (<div />);
   }
 }
 

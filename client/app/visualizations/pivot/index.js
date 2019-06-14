@@ -2,13 +2,18 @@ import { merge, omit } from 'lodash';
 import angular from 'angular';
 import $ from 'jquery';
 import 'pivottable';
+import 'pivottable/dist/pivot.zh';
 import 'pivottable/dist/pivot.css';
 import { angular2react } from 'angular2react';
 import { registerVisualization } from '@/visualizations';
+import l from '@/locales/zh';
 
 import './pivot.less';
 
 import Editor from './Editor';
+
+$.pivotUtilities.locales.zh.localeStrings.apply = l.Apply;
+$.pivotUtilities.locales.zh.localeStrings.cancel = l.Cancel;
 
 const DEFAULT_OPTIONS = {
   controls: {
@@ -48,7 +53,7 @@ const PivotTableRenderer = {
         ...this.options,
       };
 
-      $('.pivot-table-renderer', $element).pivotUI(data, options, true);
+      $('.pivot-table-renderer', $element).pivotUI(data, options, true, 'zh');
     };
 
     $scope.$watch('$ctrl.data', update);

@@ -9,14 +9,16 @@ import { User } from '@/services/user';
 import { Group } from '@/services/group';
 import { currentUser } from '@/services/auth';
 import { absoluteUrl } from '@/services/utils';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import { UserProfile } from '../proptypes';
 import DynamicForm from '../dynamic-form/DynamicForm';
 import ChangePasswordDialog from './ChangePasswordDialog';
 import InputWithCopy from '../InputWithCopy';
 
-export default class UserEdit extends React.Component {
+class UserEdit extends React.Component {
   static propTypes = {
     user: UserProfile.isRequired,
+    intl: intlShape.isRequired,
   };
 
   constructor(props) {
@@ -175,10 +177,12 @@ export default class UserEdit extends React.Component {
   renderApiKey() {
     const { user, regeneratingApiKey } = this.state;
 
+    const { intl } = this.props;
+
     return (
       <Form layout="vertical">
         <hr />
-        <Form.Item label="API Key" className="m-b-10">
+        <Form.Item label={intl.formatMessage({ id: 'API Key' })} className="m-b-10">
           <InputWithCopy id="apiKey" className="hide-in-percy" value={user.apiKey} data-test="ApiKey" readOnly />
         </Form.Item>
         <Button
@@ -187,7 +191,7 @@ export default class UserEdit extends React.Component {
           loading={regeneratingApiKey}
           data-test="RegenerateApiKey"
         >
-          Regenerate
+          <FormattedMessage id="Regenerate" />
         </Button>
       </Form>
     );
@@ -276,7 +280,7 @@ export default class UserEdit extends React.Component {
           <Fragment>
             {this.renderApiKey()}
             <hr />
-            <h5>Password</h5>
+            <h5><FormattedMessage id="Password" /></h5>
             {user.id === currentUser.id && (
               <Button className="w-100 m-t-10" onClick={this.changePassword} data-test="ChangePassword">
                 Change Password
@@ -297,3 +301,5 @@ export default class UserEdit extends React.Component {
     );
   }
 }
+
+export default injectIntl(UserEdit);
