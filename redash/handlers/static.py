@@ -17,6 +17,13 @@ def render_index():
     return response
 
 
+@routes.route(org_scoped_rule('/static/unsupported'))
+def unsupported(**kwargs):
+    full_path = safe_join(settings.STATIC_ASSETS_PATH, 'unsupported.html')
+    response = send_file(full_path)
+    return response
+
+
 @routes.route(org_scoped_rule('/<path:path>'))
 @routes.route(org_scoped_rule('/'))
 @login_required

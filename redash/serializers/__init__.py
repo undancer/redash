@@ -3,15 +3,14 @@ This will eventually replace all the `to_dict` methods of the different model
 classes we have. This will ensure cleaner code and better
 separation of concerns.
 """
-from funcy import project
 
+from flask import current_app as app, url_for
 from flask_login import current_user
+from funcy import project
 
 from redash import models
 from redash.permissions import has_access, view_only
 from redash.utils import json_loads
-from redash.models.parameterized_query import ParameterizedQuery
-
 from .query_result import serialize_query_result_to_csv, serialize_query_result_to_xlsx
 
 
@@ -206,13 +205,24 @@ def serialize_dashboard(obj, with_widgets=False, user=None, with_favorite_state=
     else:
         widgets = None
 
+    if obj.user is not None:
+        _user = obj.user.to_dict()
+    else:
+        assets = app.extensions['webpack']['assets'] or {}
+        path = 'images/avatar.svg'
+        profile_image_url = url_for('static', filename=assets.get(path, path))
+        _user = {
+            'name': 'user',
+            'profile_image_url': profile_image_url,
+        }
+
     d = {
         'id': obj.id,
         'slug': obj.slug,
         'name': obj.name,
         'user_id': obj.user_id,
         # TODO: we should properly load the users
-        'user': obj.user.to_dict(),
+        'user': _user,
         'layout': layout,
         'dashboard_filters_enabled': obj.dashboard_filters_enabled,
         'widgets': widgets,

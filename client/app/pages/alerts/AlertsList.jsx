@@ -69,7 +69,7 @@ class AlertsList extends React.Component {
               icon="fa fa-bell-o"
               illustration="alert"
               description="Get notified on certain events"
-              helpLink="https://redash.io/help/user-guide/alerts/"
+              helpLink="http://help.xinniuren.cn/bigdata/alert.html"
               showAlertStep
             />
           )}
