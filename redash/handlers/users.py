@@ -125,7 +125,8 @@ class UserListResource(BaseResource):
             abort(400, message='Bad email address.')
         name, domain = req['email'].split('@', 1)
 
-        if domain.lower() in blacklist or domain.lower() == 'qq.com':
+        # if domain.lower() in blacklist or domain.lower() == 'qq.com':
+        if domain.lower() in blacklist:
             abort(400, message='Bad email address.')
 
         user = models.User(org=self.current_org,
@@ -242,7 +243,8 @@ class UserResource(BaseResource):
         if 'email' in params:
             _, domain = params['email'].split('@', 1)
 
-            if domain.lower() in blacklist or domain.lower() == 'qq.com':
+            # if domain.lower() in blacklist or domain.lower() == 'qq.com':
+            if domain.lower() in blacklist:
                 abort(400, message='Bad email address.')
 
         email_address_changed = 'email' in params and params['email'] != user.email

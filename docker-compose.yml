@@ -19,6 +19,9 @@ services:
       REDASH_REDIS_URL: "redis://redis:6379/0"
       REDASH_DATABASE_URL: "postgresql://postgres@postgres/postgres"
       REDASH_RATELIMIT_ENABLED: "false"
+      REDASH_XINNIUREN_CLIENT_ID: 'wxe87be54a2a338911'
+      REDASH_XINNIUREN_CLIENT_SECRET: '2ddb2025fe5b3299ba583a49b77e9d92'
+      OAUTHLIB_INSECURE_TRANSPORT: 'true'
   worker:
     build: .
     command: scheduler
@@ -33,6 +36,9 @@ services:
       REDASH_DATABASE_URL: "postgresql://postgres@postgres/postgres"
       QUEUES: "queries,scheduled_queries,celery,schemas"
       WORKERS_COUNT: 2
+      REDASH_XINNIUREN_CLIENT_ID: 'test'
+      REDASH_XINNIUREN_CLIENT_SECRET: 'test'
+      OAUTHLIB_INSECURE_TRANSPORT: 'true'
   redis:
     image: redis:3-alpine
     restart: unless-stopped

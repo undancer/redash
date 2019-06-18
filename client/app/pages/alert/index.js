@@ -106,7 +106,7 @@ export default function init(ngModule) {
   return {
     '/alerts/:alertId': {
       template: '<alert-page></alert-page>',
-      title: 'Alerts',
+      title: '预警（Alerts）',
     },
   };
 }

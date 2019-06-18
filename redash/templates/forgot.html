@@ -1,19 +1,19 @@
 {% extends "layouts/signed_out.html" %}
-{% block title %}Password Reset{% endblock %}
+{% block title %}{{ _("重置密码（Password Reset）") }}{% endblock %}
 {% block content %}
 <div class="fixed-width-page">
   <div class="bg-white tiled">
     {% if submitted %}
       <div>
-        If we found an account associated with that email address, you will find an email from us in your inbox shortly.
+        {{ _("如您填写了正确的已注册的邮箱地址，您将会收到一封密码重置邮件。If we found an account associated with that email address, you will find an email from us in your inbox shortly.") }}
       </div>
     {% else %}
       <form role="form" method="post">
         <div class="form-group">
-          <label for="email">Enter the email address you used for this account:</label>
+          <label for="email">{{ _("输入您账户的邮箱地址（Enter the email address you used for this account）:") }}</label>
           <input type="email" class="form-control" name="email" value="{{email}}">
         </div>
-        <button type="submit" class="btn btn-primary btn-block m-t-25">Reset my password</button>
+        <button type="submit" class="btn btn-primary btn-block m-t-25">{{ _("重置密码 Reset my password") }}</button>
       </form>
     {% endif %}
   </div>

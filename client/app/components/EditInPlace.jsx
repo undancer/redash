@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { react2angular } from 'react2angular';
 import { trim } from 'lodash';
+import { getMessage as _ } from '@/lib/locales';
 
 export class EditInPlace extends React.Component {
   static propTypes = {
@@ -65,7 +66,7 @@ export class EditInPlace extends React.Component {
       onClick={this.startEditing}
       className={this.props.isEditable ? 'editable' : ''}
     >
-      {this.props.value || this.props.placeholder}
+      {this.props.value || _(this.props.placeholder)}
     </span>
   );
 

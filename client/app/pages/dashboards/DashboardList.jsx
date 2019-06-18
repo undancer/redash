@@ -22,6 +22,8 @@ import DashboardListEmptyState from './DashboardListEmptyState';
 
 import './dashboard-list.css';
 
+import { getMessage as _ } from '@/lib/locales';
+
 class DashboardList extends React.Component {
   static propTypes = {
     controller: ControllerType.isRequired,
@@ -31,12 +33,12 @@ class DashboardList extends React.Component {
     {
       key: 'all',
       href: 'dashboards',
-      title: 'All Dashboards',
+      title: _('All Dashboards'),
     },
     {
       key: 'favorites',
       href: 'dashboards/favorites',
-      title: 'Favorites',
+      title: _('Favorites'),
       icon: () => <Sidebar.MenuIcon icon="fa fa-star" />,
     },
   ];
@@ -45,7 +47,7 @@ class DashboardList extends React.Component {
     Columns.favorites({ className: 'p-r-0' }),
     Columns.custom.sortable((text, item) => (
       <React.Fragment>
-        <a className="table-main-title" href={'dashboard/' + item.slug} data-test={item.slug}>{ item.name }</a>
+        <a className="table-main-title" href={'dashboard/' + item.slug} data-test={item.slug}>{item.name}</a>
         <DashboardTagsControl
           className="d-block"
           tags={item.tags}
@@ -54,13 +56,13 @@ class DashboardList extends React.Component {
         />
       </React.Fragment>
     ), {
-      title: 'Name',
+      title: _('Name'),
       field: 'name',
       width: null,
     }),
     Columns.avatar({ field: 'user', className: 'p-l-0 p-r-0' }, name => `Created by ${name}`),
     Columns.dateTime.sortable({
-      title: 'Created At',
+      title: _('Created At'),
       field: 'created_at',
       className: 'text-nowrap',
       width: '1%',
@@ -75,7 +77,7 @@ class DashboardList extends React.Component {
         <Layout className="m-l-15 m-r-15">
           <Layout.Sidebar className="m-b-0">
             <Sidebar.SearchInput
-              placeholder="Search Dashboards..."
+              placeholder={_('Search Dashboards...')}
               value={controller.searchTerm}
               onChange={controller.updateSearch}
             />
@@ -145,12 +147,12 @@ export default function init(ngModule) {
   return routesToAngularRoutes([
     {
       path: '/dashboards',
-      title: 'Dashboards',
+      title: _('Dashboards'),
       key: 'all',
     },
     {
       path: '/dashboards/favorites',
-      title: 'Favorite Dashboards',
+      title: _('Favorite Dashboards'),
       key: 'favorites',
     },
   ], {

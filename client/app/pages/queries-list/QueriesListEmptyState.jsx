@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { BigMessage } from '@/components/BigMessage';
 import { NoTaggedObjectsFound } from '@/components/NoTaggedObjectsFound';
 import { EmptyState } from '@/components/empty-state/EmptyState';
+import { getMessage as _ } from '@/lib/locales';
 
 export default function QueriesListEmptyState({ page, searchTerm, selectedTags }) {
   if (searchTerm !== '') {
     return (
-      <BigMessage message="Sorry, we couldn't find anything." icon="fa-search" />
+      <BigMessage message={_('Sorry, we couldn\'t find anything.')} icon="fa-search" />
     );
   }
   if (selectedTags.length > 0) {
@@ -26,7 +27,7 @@ export default function QueriesListEmptyState({ page, searchTerm, selectedTags }
       <div className="tiled bg-white p-15">
         <a href="queries/new" className="btn btn-primary btn-sm">Create your first query</a>
         {' '}to populate My Queries list. Need help? Check out our{' '}
-        <a href="https://redash.io/help/user-guide/querying/writing-queries">query writing documentation</a>.
+        <a href="http://help.xinniuren.cn/bigdata/query.html">query writing documentation</a>.
       </div>
     );
     default: return (
@@ -34,7 +35,7 @@ export default function QueriesListEmptyState({ page, searchTerm, selectedTags }
         icon="fa fa-code"
         illustration="query"
         description="Getting the data from your datasources."
-        helpLink="https://help.redash.io/category/21-querying"
+        helpLink="http://help.xinniuren.cn/bigdata/query.html"
       />
     );
   }

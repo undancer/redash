@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { react2angular } from 'react2angular';
 import Tooltip from 'antd/lib/tooltip';
 import EditTagsDialog from './EditTagsDialog';
+import { getMessage as _ } from '@/lib/locales';
 
 export class TagsControl extends React.Component {
   static propTypes = {
@@ -33,7 +34,7 @@ export class TagsControl extends React.Component {
     const tags = map(this.props.tags, trim);
     return (
       <a className="label label-tag" role="none" onClick={() => this.editTags(tags, this.props.getAvailableTags)}>
-        {(tags.length === 0) && <React.Fragment><i className="zmdi zmdi-plus m-r-5" />Add tag</React.Fragment>}
+        {(tags.length === 0) && <React.Fragment><i className="zmdi zmdi-plus m-r-5" />{_('Add tag')}</React.Fragment>}
         {(tags.length > 0) && <i className="zmdi zmdi-edit" />}
       </a>
     );
@@ -59,11 +60,11 @@ function modelTagsControl({ archivedTooltip }) {
     return (
       <TagsControl {...props}>
         {!isArchived && isDraft && (
-          <span className="label label-tag-unpublished">Unpublished</span>
+          <span className="label label-tag-unpublished">{_('Unpublished')}</span>
         )}
         {isArchived && (
           <Tooltip placement="right" title={archivedTooltip}>
-            <span className="label label-tag-archived">Archived</span>
+            <span className="label label-tag-archived">{_('Archived')}</span>
           </Tooltip>
         )}
       </TagsControl>

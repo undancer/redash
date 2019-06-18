@@ -8,6 +8,7 @@
     "bundle": "bin/bundle-extensions",
     "clean": "rm -rf ./client/dist/",
     "build": "npm run clean && NODE_ENV=production node --max-old-space-size=4096 node_modules/.bin/webpack",
+    "build-dev": "npm run clean && node --max-old-space-size=4096 node_modules/.bin/webpack",
     "watch": "webpack --watch --progress --colors -d",
     "analyze": "npm run clean && BUNDLE_ANALYZER=on webpack",
     "analyze:build": "npm run clean && NODE_ENV=production BUNDLE_ANALYZER=on webpack",
@@ -44,6 +45,7 @@
     "angular-resource": "~1.5.8",
     "angular-route": "~1.5.8",
     "angular-sanitize": "~1.5.8",
+    "angular-translate": "^2.18.1",
     "angular-ui-ace": "^0.2.3",
     "angular-ui-bootstrap": "^2.5.0",
     "angular-vs-repeat": "^1.1.7",
@@ -81,6 +83,7 @@
     "react": "^16.8.3",
     "react-ace": "^6.1.0",
     "react-dom": "^16.8.3",
+    "react-intl": "^2.9.0",
     "react-grid-layout": "git+https://github.com/getredash/react-grid-layout.git",
     "react2angular": "^3.2.1",
     "ui-select": "^0.19.8",
@@ -136,7 +139,7 @@
     "webpack-manifest-plugin": "^2.0.4"
   },
   "optionalDependencies": {
-    "fsevents": "^1.2.4"
+    "fsevents": "^1.2.9"
   },
   "jest": {
     "setupFiles": [
@@ -156,7 +159,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit-disabled": "lint-staged"
     }
   },
   "lint-staged": {

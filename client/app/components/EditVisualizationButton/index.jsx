@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
 import { react2angular } from 'react2angular';
+import { getMessage as _ } from '@/lib/locales';
 
 
 export function EditVisualizationButton(props) {
@@ -14,7 +15,7 @@ export function EditVisualizationButton(props) {
     >
       <Icon type="form" />
       <span className="hidden-xs hidden-s hidden-m">
-        Edit Visualization
+        {_('Edit Visualization')}
       </span>
     </Button>
   );
