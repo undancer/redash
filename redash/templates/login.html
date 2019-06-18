@@ -20,6 +20,13 @@
       </a>
     {% endif %}
 
+    {% if show_xinniuren_openid %}
+      <a href="{{ xinniuren_auth_url }}" class="login-button btn btn-default btn-block">
+        <img src="/static/images/google_logo.svg">
+        Login with XinNiuRen
+      </a>
+    {% endif %}
+
     {% if show_saml_login %}
       <a href="{{ url_for('saml_auth.sp_initiated', org_slug=org_slug, next=next) }}" class="login-button btn btn-default btn-block">SAML Login</a>
     {% endif %}

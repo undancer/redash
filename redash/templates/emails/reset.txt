@@ -1,6 +1,6 @@
 Hi {{ user.name }},
 
-us you forgot your password. If you really did, click here to choose a new one:
+You told us you forgot your password. If you really did, click here to choose a new one:
 这是一封密码重置邮件，由于您在线申请进行密码重置，您可点击以下链接输入一个新密码：
 {{ reset_link }}
 
