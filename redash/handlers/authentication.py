@@ -25,6 +25,14 @@ def get_google_auth_url(next_path):
     return google_auth_url
 
 
+def get_xinniuren_auth_url(next_path):
+    if settings.MULTI_ORG:
+        xinniuren_auth_url = url_for('xinniuren_oauth.authorize_org', next=next_path, org_slug=current_org.slug)
+    else:
+        xinniuren_auth_url = url_for('xinniuren_oauth.authorize', next=next_path)
+    return xinniuren_auth_url
+
+
 def render_token_login_page(template, org_slug, token, invite):
     try:
         user_id = validate_token(token)
@@ -165,13 +173,16 @@ def login(org_slug=None):
             flash("Wrong email or password.")
 
     google_auth_url = get_google_auth_url(next_path)
+    xinniuren_auth_url = get_xinniuren_auth_url(next_path)
 
     return render_template("login.html",
                            org_slug=org_slug,
                            next=next_path,
                            email=request.form.get('email', ''),
                            show_google_openid=settings.GOOGLE_OAUTH_ENABLED,
+                           show_xinniuren_openid=settings.XINNIUREN_OAUTH_ENABLED,
                            google_auth_url=google_auth_url,
+                           xinniuren_auth_url=xinniuren_auth_url,
                            show_password_login=current_org.get_setting('auth_password_login_enabled'),
                            show_saml_login=current_org.get_setting('auth_saml_enabled'),
                            show_remote_user_login=settings.REMOTE_USER_LOGIN_ENABLED,
